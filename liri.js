@@ -88,20 +88,21 @@ if(search === undefined) {
 }
 else{
 spotify
-.search({type:'track', query: search, limit: 1}, function(error, data){
+.search({type:'track', query: search, limit: 5}, function(error, data){
     if (error) {
         return console.log('Error occurred: ' + error);
       }
     else{
-        var artistName= data.tracks.items[0].album.artists[0].name
-        // console.log("Artist Name is: " + artistName);
-        var albumName=data.tracks.items[0].album.name;
-       
-        var songName =data.tracks.items[0].name
+        for (var k = 0; k < data.tracks.items.length; k++) {
+        var artistName= data.tracks.items[k].album.artists[0].name;
+        var albumName=data.tracks.items[k].album.name;
+        var songName =data.tracks.items[k].name;
+        var previewLink = data.tracks.items[k].preview_url;
+        
         console.log("Song: " + songName + "by " + 
         artistName + " from album titled " + albumName);
-        var previewLink = data.tracks.items[0].preview_url;
         console.log("Listen preview here: " + previewLink);
+    }
     }
 
 })}};
