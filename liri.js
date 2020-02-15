@@ -97,11 +97,18 @@ spotify
         var artistName= data.tracks.items[k].album.artists[0].name;
         var albumName=data.tracks.items[k].album.name;
         var songName =data.tracks.items[k].name;
-        var previewLink = data.tracks.items[k].preview_url;
-        
+
         console.log("Song: " + songName + "by " + 
         artistName + " from album titled " + albumName);
-        console.log("Listen preview here: " + previewLink);
+
+        var previewLink = data.tracks.items[k].preview_url;
+            if (previewLink === null)
+                console.log("Listen preview here: ***Sorry no link at this time.***")
+            else{
+                console.log("Listen preview here: " + previewLink);
+            }
+        
+    
     }
     }
 
