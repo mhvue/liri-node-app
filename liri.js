@@ -15,7 +15,7 @@ if(action === "concert-this") {
     concertSearch();
 }
 else if(action === "spotify-this-song"){
-
+    spotifySearch();
 }
 else if(action === "movie-this") {
 
@@ -24,7 +24,7 @@ else if(action ==="do-what-it-says"){
 
 }
 else {
-    console.log("Sorry, did not get input. Please try again")
+    console.log("Sorry. Please try again. Don't forget to include what category first. Ex: movie-this <name of movie>")
 }
 
 //get user's input
@@ -80,11 +80,28 @@ function concertSearch(){
 })};
 
 //spotify-this-song '<song name here>'`
-// spotify
-// .search({type:'track', query: 'My search query'})
-// .then(function(response){
-// console.log(response);
-// })
-// .catch(function(error) {
-// console.log(error)
-// });
+function spotifySearch() {
+    userSearch();
+
+if(search === undefined) {
+    search = "The Sign by Ace of Base";
+}
+else{
+spotify
+.search({type:'track', query: search, limit: 1}, function(error, data){
+    if (error) {
+        return console.log('Error occurred: ' + error);
+      }
+    else{
+        var artistName= data.tracks.items[0].album.artists[0].name
+        // console.log("Artist Name is: " + artistName);
+        var albumName=data.tracks.items[0].album.name;
+       
+        var songName =data.tracks.items[0].name
+        console.log("Song: " + songName + "by " + 
+        artistName + " from album titled " + albumName);
+        var previewLink = data.tracks.items[0].preview_url;
+        console.log("Listen preview here: " + previewLink);
+    }
+
+})}};
