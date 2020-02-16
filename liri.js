@@ -24,7 +24,7 @@ else if(action ==="do-what-it-says"){
 
 }
 else {
-    console.log("Sorry. Please try again. Don't forget to include what category first. Ex: movie-this <name of movie>")
+    console.log("Sorry. Please try again. Don't forget to include what category first. Ex: movie-this <input name of movie>")
 }
 
 //get user's input
@@ -53,18 +53,18 @@ function concertSearch(){
     for(var j = 0; j < response.data.length; j++) {
 
     var venue = response.data[j].venue.name;
-    var concertCity = response.data[j].venue.city 
-    var concertCountry = response.data[j].venue.country
-
-    console.log("---------------Concert Location---------------");
-    console.log("Name of Venue:" + venue + ", "  
-    + "Name of city: " + concertCity + ", " 
-    + "Name of county: " + concertCountry);
-    console.log("---------------Concert Date--------------");
+    var concertCity = response.data[j].venue.city;
+    var concertCountry = response.data[j].venue.country;
     var dateResponse = response.data[1].datetime
     var dateOnly= dateResponse.slice(0,10);
     var convertDate= moment(dateOnly).format("MM/DD/YYYY")
-    console.log("Date of event:" + convertDate);
+
+    console.log("---------------Concert Information---------------");
+    console.log("Name of Venue:" + venue
+    + "\nName of city: " + concertCity
+    + "\nName of county: " + concertCountry
+    + "\nDate of event: " + convertDate);
+
     }
     })
     .catch(function(error) {
@@ -98,8 +98,8 @@ spotify
         var albumName=data.tracks.items[k].album.name;
         var songName =data.tracks.items[k].name;
 
-        console.log("Song: " + songName + "by " + 
-        artistName + " from album titled " + albumName);
+        console.log("\nSong: " + songName + "." + "\nBy: " + 
+        artistName + "." + "\nFrom album titled: " + albumName);
 
         var previewLink = data.tracks.items[k].preview_url;
             if (previewLink === null)
