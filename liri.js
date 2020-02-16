@@ -42,7 +42,6 @@ else {
 
 //concert-this <artist/band name here>
 function concertSearch(){
-    // userSearch()
 
     var queryUrl= "https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
 
@@ -80,40 +79,38 @@ function concertSearch(){
 //spotify-this-song '<song name here>'`
 function spotifySearch() {
    
-
-if(search === undefined) {
-    search = "The Sign by Ace of Base";
-}
-else{
-spotify
-.search({type:'track', query: search, limit: 5}, function(error, data){
-    if (error) {
-        return console.log('Error occurred: ' + error);
-      }
+    if(search === undefined) {
+        search = "The Sign by Ace of Base";
+    }
     else{
-        for (var k = 0; k < data.tracks.items.length; k++) {
-        var artistName= data.tracks.items[k].album.artists[0].name;
-        var albumName=data.tracks.items[k].album.name;
-        var songName =data.tracks.items[k].name;
+    spotify
+    .search({type:'track', query: search, limit: 5}, function(error, data){
+        if (error) {
+            return console.log('Error occurred: ' + error);
+        }
+        else{
+            for (var k = 0; k < data.tracks.items.length; k++) {
+            var artistName= data.tracks.items[k].album.artists[0].name;
+            var albumName=data.tracks.items[k].album.name;
+            var songName =data.tracks.items[k].name;
 
-        console.log("\nSong: " + songName + "." + "\nBy: " + 
-        artistName + "." + "\nFrom album titled: " + albumName);
+            console.log("\nSong: " + songName + "." + "\nBy: " + 
+            artistName + "." + "\nFrom album titled: " + albumName);
 
-        var previewLink = data.tracks.items[k].preview_url;
-            if (previewLink === null)
-                console.log("Listen preview here: ***Sorry no link at this time.***")
-            else{
-                console.log("Listen preview here: " + previewLink);
-            }
+            var previewLink = data.tracks.items[k].preview_url;
+                if (previewLink === null)
+                    console.log("Listen preview here: ***Sorry no link at this time.***")
+                else{
+                    console.log("Listen preview here: " + previewLink);
+                }
+            
         
-    
-    }
-    }
+        }
+        }
 
 })}};
 
 function movieSearch() {
-    
     
     var ombdQueryURL= "http://www.omdbapi.com/?t=" + search + "&apikey=trilogy";
 
@@ -163,17 +160,13 @@ function doWhat() {
     fs.readFile("random.txt", "utf8", function(error, data) {
 
             var dataNew = data.split(",")
-            var newAction = dataNew[0]
-            console.log(newAction);
-            var newSearch = dataNew[1];
-            console.log(newSearch);
+            action = dataNew[0]
+            search = dataNew[1];
+           
 
-        if(data.length== 2){
-            newAction = dataNew[0];
-            newSearch= dataNew[1];        
-        }
-
-
+            if(action === "spotify-this-song") {
+                spotifySearch();
+            }
         // }
         // else{
         //     console.log("not working")
