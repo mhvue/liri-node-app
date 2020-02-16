@@ -4,11 +4,23 @@ var axios = require("axios");
 var moment = require("moment");
 var Spotify = require("node-spotify-api");
 var spotify  = new Spotify(keys.spotify);
+var fs = require("fs");
 
 //gather input 
 var nodeArgs = process.argv;
 var action = process.argv[2]; //ex: concert-this or movie-this goes in this index
-var search = process.argv[3] //user input value
+// var search = process.argv[3] //user input value
+var search = "";
+for (var i = 3; i < nodeArgs.length; i++) {
+    if(i > 3 && i < nodeArgs.length){
+        search = search + " " + nodeArgs[i]; 
+    }
+    else {
+    search += nodeArgs[i];
+    }
+}
+console.log(search);
+// }
 
 //to get user's input and know which category to start which funct
 if(action === "concert-this") {
@@ -21,35 +33,22 @@ else if(action === "movie-this") {
     movieSearch();
 }
 else if(action ==="do-what-it-says"){
-
+    doWhat();
 }
 else {
     console.log("Sorry. Please try again. Don't forget to include category first. Ex: movie-this <input name of movie>")
 }
 
-//get user's input
-function userSearch () {
-        search ="";
-for (var i =3; i < nodeArgs.length; i++) {
-    if(i > 3 && i < nodeArgs.length){
-        search = search + "+" + nodeArgs[i]; 
-    }
-    else {
-    search += nodeArgs[i];
-    }
-}
-}
-
 
 //concert-this <artist/band name here>
 function concertSearch(){
-    userSearch()
+    // userSearch()
 
     var queryUrl= "https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
 
     axios
     .get(queryUrl).then(function(response) {
-    console.log(response.data[1].datetime);
+    // console.log(response.data[1].datetime);
     for(var j = 0; j < response.data.length; j++) {
 
     var venue = response.data[j].venue.name;
@@ -61,8 +60,7 @@ function concertSearch(){
 
     console.log("---------------Concert Information---------------");
     console.log("Name of Venue:" + venue
-    + "\nName of city: " + concertCity
-    + "\nName of county: " + concertCountry
+    + "\nName of city and county: " + concertCity +", "+  concertCountry
     + "\nDate of event: " + convertDate);
 
     }
@@ -81,7 +79,7 @@ function concertSearch(){
 
 //spotify-this-song '<song name here>'`
 function spotifySearch() {
-    userSearch();
+   
 
 if(search === undefined) {
     search = "The Sign by Ace of Base";
@@ -115,7 +113,7 @@ spotify
 })}};
 
 function movieSearch() {
-    userSearch();
+    
     
     var ombdQueryURL= "http://www.omdbapi.com/?t=" + search + "&apikey=trilogy";
 
@@ -160,3 +158,42 @@ function movieSearch() {
         }
 })
 };
+
+function doWhat() {
+    fs.readFile("random.txt", "utf8", function(error, data) {
+
+            var dataNew = data.split(",")
+            var newAction = dataNew[0]
+            console.log(newAction);
+            var newSearch = dataNew[1];
+            console.log(newSearch);
+
+        if(data.length== 2){
+            newAction = dataNew[0];
+            newSearch= dataNew[1];        
+        }
+
+
+        // }
+        // else{
+        //     console.log("not working")
+        // }
+        // else if(action === "spotify-this-song"){
+        //     spotifySearch();
+        // }
+        // else if(action === "movie-this") {
+        //     movieSearch();
+        // }
+        // else if(action ==="do-what-it-says"){
+        //     doWhat();
+        // }
+        // else {
+        //     console.log("Sorry. Please try again. Don't forget to include category first. Ex: movie-this <input name of movie>")
+        // }
+    
+        // if (error) {
+        //     return console.log(error);
+        //   }
+        
+    })
+}
