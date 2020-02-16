@@ -5,7 +5,7 @@ var moment = require("moment");
 var Spotify = require("node-spotify-api");
 var spotify  = new Spotify(keys.spotify);
 
-
+//gather input 
 var nodeArgs = process.argv;
 var action = process.argv[2]; //ex: concert-this or movie-this goes in this index
 var search = process.argv[3] //user input value
@@ -18,13 +18,13 @@ else if(action === "spotify-this-song"){
     spotifySearch();
 }
 else if(action === "movie-this") {
-
+    movieSearch();
 }
 else if(action ==="do-what-it-says"){
 
 }
 else {
-    console.log("Sorry. Please try again. Don't forget to include what category first. Ex: movie-this <input name of movie>")
+    console.log("Sorry. Please try again. Don't forget to include category first. Ex: movie-this <input name of movie>")
 }
 
 //get user's input
@@ -113,3 +113,39 @@ spotify
     }
 
 })}};
+
+function movieSearch() {
+    userSearch();
+    
+    var ombdQueryURL= "http://www.omdbapi.com/?t=" + search + "&apikey=trilogy";
+
+    axios
+    .get(ombdQueryURL).then(function(response) {
+        // console.log(response.data);
+        var movieTitle = response.data.Title;
+        var yearMovie= response.data.Year;
+        var ratings =  {
+           ombd: response.data.Ratings[0].Source,
+           ombdVal:  response.data.Ratings[0].Value,
+           rottonT:  response.data.Ratings[1].Source,
+           rottonTVal: response.data.Ratings[1].Value
+        } 
+
+        console.log(ratings.ombd + ratings.ombdVal);
+
+        console.log("\nMovie Name: " + movieTitle
+        + "\nYear Made :" + yearMovie
+        + " \nOMBD Ratings: " + ratings.ombd + " = " + ratings.ombdVal);
+    })
+    .catch(function(error) {
+        if(error.response) {
+        console.log(error.response.data);
+        } 
+        else if(error.request) {
+        console.log(error.request);
+        }
+        else {
+        console.log("Error", error.message);
+        }
+})
+};
