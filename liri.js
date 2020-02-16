@@ -122,20 +122,31 @@ function movieSearch() {
     axios
     .get(ombdQueryURL).then(function(response) {
         // console.log(response.data);
-        var movieTitle = response.data.Title;
-        var yearMovie= response.data.Year;
+        var movieInfo = {
+            title: response.data.Title,
+            year: response.data.Year,
+            countryProd: response.data.Country,
+            language: response.data.Language,
+            plot: response.data.Plot,
+            actors: response.data.Actors
+        }
+
         var ratings =  {
            ombd: response.data.Ratings[0].Source,
-           ombdVal:  response.data.Ratings[0].Value,
-           rottonT:  response.data.Ratings[1].Source,
+           ombdVal: response.data.Ratings[0].Value,
+           rottonT: response.data.Ratings[1].Source,
            rottonTVal: response.data.Ratings[1].Value
         } 
+        
 
-        console.log(ratings.ombd + ratings.ombdVal);
-
-        console.log("\nMovie Name: " + movieTitle
-        + "\nYear Made :" + yearMovie
-        + " \nOMBD Ratings: " + ratings.ombd + " = " + ratings.ombdVal);
+        console.log("\nMovie Name: " + movieInfo.title
+        + "\nYear Made: " + movieInfo.year
+        + "\nOMBD Ratings: " + ratings.ombd + " = " + ratings.ombdVal
+        + "\nRotten Tomatoes Ratings: " + ratings.rottonT + " = " + ratings.rottonTVal
+        + "\nProduced in: " + movieInfo.countryProd
+        + "\nLanguage of movie: " + movieInfo.language 
+        + "\nPlot: " + movieInfo.plot
+        + "\nActors: " + movieInfo.actors);
     })
     .catch(function(error) {
         if(error.response) {
