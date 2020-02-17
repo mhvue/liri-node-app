@@ -14,12 +14,10 @@ This it language interpretation applicaiton for command line on node.  This appl
 5. Information will then load. Examples below.
 
 ### Concerts 
-Running command of concert-this<br/>
-<p align="center">
+<p align="center">Running command of concert-this
 <img src = "images/concertSearchEx.png">
 </p>
 <br/>
-Results:
-<p align="center">
+<p align="center">Results:
 <img src= "images/concertSearch.png">
 </p>
