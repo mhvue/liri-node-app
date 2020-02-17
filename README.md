@@ -1,10 +1,10 @@
 ## LIRI (Language Interpretation and Recognition Interface)
 
 This it language interpretation applicaiton for command line on node.  This appliation will:
-* Find concerts using command of _"concert-this"_
-* Spotify a song using command of _"spotify-this-song"_
-* Find movie information using command of _"movie-this"_
-* Call one of the commands above using command of _"do-what-it-says"_
+* Find concerts using command of _concert-this_
+* Spotify a song using command of _spotify-this-song_
+* Find movie information using command of _movie-this_
+* Call one of the commands above using command of _do-what-it-says_
 
 ## How it works:
 1. Open your terminal. I am using Git Bash. 
@@ -13,6 +13,8 @@ This it language interpretation applicaiton for command line on node.  This appl
 4. Input the command based on what you are interested to look for. 
 5. Information will then load. Examples below.
 
-### Concerts
+### Concerts 
+Running command of concert-this
 <img src = "images/concertSearchEx.png">
-<img src= "images/concertSearch.png>
+Loaded Results:
+<img src= "images/concertSearch.png">
