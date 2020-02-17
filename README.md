@@ -14,7 +14,7 @@ This it language interpretation applicaiton for command line on node.  This appl
 5. Information will then load. Examples below.
 
 ### Concerts 
-<img src = "images/concertSearchEx.png"> Running command of concert-this
-<p align="center">Results:<br>
+![alt text] images/concertSearchEx.png "Running command of concert-this"
+<p align="center"><b>Results:</b><br>
 <img src= "images/concertSearch.png">
 </p>
