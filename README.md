@@ -22,7 +22,14 @@ Using _concert-this_
 
 ### Spotify a song
 Using _spotify-this-song_
-<p align="center"><b>An input of spotify this song and the results loaded with song title, artist, Album name, and link to preview the song</b>
+<p align="center"><b>An input of spotify this song with song name and the results loaded with song title, artist, Album name, and link to preview the song</b>
 <br>
 <img src= "images/songSearch.png" width="600px"/>
+</p>
+
+### Movie
+Using _movie-this_
+<p align="center"><b>An input of movie this with movie title and the results loaded with movie name, year made, ratings from OMBD and Rotten Tomatoes, where producd, lanuage of movie, and plot.</b>
+<br>
+<img src= "images/movieSearch.png" width="300px"/>
 </p>
