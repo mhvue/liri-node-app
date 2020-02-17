@@ -15,7 +15,7 @@ This is a language interpretation application for command line on node.  This ap
 
 ### Concerts 
 Using _concert-this_
-<p align="center"><b>An input of concert-this with artist or band name and the following results are loaded with name of venue, location and date of event</b>
+<p align="center"><b>An input of concert-this with artist or band name and the following results are loaded with Venue, Location and Date of Event</b>
 <br>
 <img src= "images/concertSearch2.png">
 </p>
@@ -24,12 +24,12 @@ Using _concert-this_
 Using _spotify-this-song_
 <p align="center"><b>An input of spotify-this-song with song name and the results are loaded with song Title, Artist, Album name, and link to preview the song</b>
 <br>
-<img src= "images/songSearch.png" width="600px"/>
+<img src= "images/songSearch.png" width="700px">
 </p>
 
 ### Movie
 Using _movie-this_
-<p align="center"><b>An input of movie-this with movie title and the results are loaded with movie name, year made, ratings from OMBD and Rotten Tomatoes, where produced, languageof movie, and plot of movie.</b>
+<p align="center"><b>An input of movie-this with movie title and the results are loaded with movie Name, Year Made, Ratings from OMBD and Rotten Tomatoes, Production location, Language of movie, and Plot.</b>
 <br>
 <img src= "images/movieSearch.png">
 </p>
