@@ -15,6 +15,6 @@ This it language interpretation applicaiton for command line on node.  This appl
 
 ### Concerts 
 Using _concert-this_
-<p align="center"><b>Results:</b><br>
+<p align="center"><b>As you can see, an input of concert this Taylor Swift and following results loaded.</b><br>
 <img src= "images/concertSearch2.png">
 </p>
