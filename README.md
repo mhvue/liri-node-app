@@ -7,11 +7,11 @@ This is a language interpretation applicaiton for command line on node.  This ap
 * Call one of the commands above using command of _do-what-it-says_
 
 ## How it works:
-1. Open your terminal. I am using Git Bash. 
+1. Open terminal. I am using Git Bash. 
 2. Go into the folder with file liri.js.
 3. Always start with "node". Then input liri.js. Stay on the same line then follow next steps.
-4. Input the command based on what you are interested to look for. 
-5. Information will then load. Examples below.
+4. Input the command and topic of interest (ex: movie-this Cinderella)
+5. Information will then load. See examples below.
 
 ### Concerts 
 Using _concert-this_
