@@ -19,8 +19,6 @@ for (var i = 3; i < nodeArgs.length; i++) {
     search += nodeArgs[i];
     }
 }
-// }
-
 //to get user's input and know which category to start which funct
 if(action === "concert-this") {
     concertSearch();
@@ -37,7 +35,6 @@ else if(action ==="do-what-it-says"){
 else {
     console.log("Please try again. Don't forget to include category first. Ex: movie-this <input name of movie>")
 }
-
 
 //concert-this <artist/band name here>
 function concertSearch(){
@@ -58,7 +55,7 @@ function concertSearch(){
         console.log("---------------Concert Information---------------");
         console.log("Name of Venue: " + concertInfo.venue
         + "\nName of city and county: " + concertInfo.city +", "+  concertInfo.country
-        + "\nDate of event: " + convertDate);
+        + "\nDate of event: " + convertDate + "\n");
         
     }
     })
@@ -78,7 +75,6 @@ function concertSearch(){
 function spotifySearch() {
     spotify
     .search({type:'track', query: search, limit: 5}, function(error, data){
-
         for (var k = 0; k < data.tracks.items.length; k++) {
             var songInfo = {
                 artistName: data.tracks.items[k].album.artists[0].name,
@@ -86,18 +82,15 @@ function spotifySearch() {
                 songName: data.tracks.items[k].name,
                 previewLink: data.tracks.items[k].preview_url
             }
-    
         if (error) {
             return console.log('Error occurred: ' + error);
         }
-        
         if(search = "") {
             search = "The Sign";
             
             console.log("\nSong: " + songInfo.songName + "." + "\nBy: " + 
             songInfo.artistName + "." + "\nFrom album titled: " + songInfo.albumName);;
             console.log("Listen preview here: " + songInfo.previewLink);
-        
     }
         else{
             console.log("\nSong: " + songInfo.songName + "." + "\nBy: " + 
@@ -107,17 +100,13 @@ function spotifySearch() {
             }
             else{
                 console.log("Listen preview here: " + songInfo.previewLink);
-            }
-            
+            } 
         }
     }
-
 })};
 
 function movieSearch() {
-    
     var ombdQueryURL= "http://www.omdbapi.com/?t=" + search + "&apikey=trilogy";
-
     axios
     .get(ombdQueryURL).then(function(response) {
         // console.log(response.data);
@@ -129,17 +118,12 @@ function movieSearch() {
             plot: response.data.Plot,
             actors: response.data.Actors
         }
-
         var ratings = {
-           ombd: response.data.Ratings[0].Source,
            ombdVal: response.data.Ratings[0].Value,
-           rottonT: response.data.Ratings[1].Source,
            rottonTVal: response.data.Ratings[1].Value
         } 
-
         if(search = null) {
             search = "Mr. Nobody";
-
             console.log("\nMovie Name: " + movieInfo.title
             + "\nYear Made: " + movieInfo.year
             + "\nOMBD Ratings: " + ratings.ombd + " = " + ratings.ombdVal
@@ -150,14 +134,14 @@ function movieSearch() {
             + "\nActors: " + movieInfo.actors);
         }
         else {
-        console.log("\nMovie Name: " + movieInfo.title
-        + "\nYear Made: " + movieInfo.year
-        + "\nOMBD Ratings: " + ratings.ombd + " = " + ratings.ombdVal
-        + "\nRotten Tomatoes Ratings: " + ratings.rottonT + " = " + ratings.rottonTVal
-        + "\nProduced in: " + movieInfo.countryProd
-        + "\nLanguage of movie: " + movieInfo.language 
-        + "\nPlot: " + movieInfo.plot
-        + "\nActors: " + movieInfo.actors);
+            console.log("\nMovie Name: " + movieInfo.title
+            + "\nYear Made: " + movieInfo.year
+            + "\nOMBD Ratings= " + ratings.ombdVal
+            + "\nRotten Tomatoes Ratings= " +  ratings.rottonTVal
+            + "\nProduced in: " + movieInfo.countryProd
+            + "\nLanguage of movie: " + movieInfo.language 
+            + "\nPlot: " + movieInfo.plot
+            + "\nActors: " + movieInfo.actors);
         }
     })
     .catch(function(error) {
