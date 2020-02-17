@@ -22,7 +22,7 @@ Using _concert-this_
 
 ### Spotify a song
 Using _spotify-this-song_
-<p align="center"><b>As you can see, an input of concert this Taylor Swift and following results loaded.</b>
+<p align="center"><b>As you can see, an input of spotify this song and the results loaded.</b>
 <br>
-<img src= "images/songSearch.png" width="200"/>
+<img src= "images/songSearch.png" width="600px"/>
 </p>
