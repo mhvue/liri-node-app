@@ -1,6 +1,6 @@
 ## LIRI (Language Interpretation and Recognition Interface)
 
-This it language interpretation applicaiton for command line on node.  This appliation will:
+This is a language interpretation applicaiton for command line on node.  This appliation will:
 * Find concerts using command of _concert-this_
 * Spotify a song using command of _spotify-this-song_
 * Find movie information using command of _movie-this_
@@ -40,3 +40,6 @@ Using _do-what-it-says_
 <br>
 <img src= "images/dowhatitSaysSearch.png">
 </p>
+
+## Technologies Used
+This application uses npm packages of axios, moment, fs, dotenv and spotify. Information on movies obtained from OMBD API. Information on concert obtained from Bands in Town Artist Events API. Song information obtained from Spotify API. This application is build with javascript and node.js. 
