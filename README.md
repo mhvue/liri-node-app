@@ -15,14 +15,14 @@ This it language interpretation applicaiton for command line on node.  This appl
 
 ### Concerts 
 Using _concert-this_
-<p align="center"><b>As you can see, an input of concert this Taylor Swift and following results loaded.</b>
+<p align="center"><b>An input of concert this Taylor Swift and following results loaded with name of venue, location and date of event</b>
 <br>
 <img src= "images/concertSearch2.png">
 </p>
 
 ### Spotify a song
 Using _spotify-this-song_
-<p align="center"><b>As you can see, an input of spotify this song and the results loaded.</b>
+<p align="center"><b>An input of spotify this song and the results loaded with song title, artist, Album name, and link to preview the song</b>
 <br>
 <img src= "images/songSearch.png" width="600px"/>
 </p>
