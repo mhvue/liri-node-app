@@ -27,6 +27,11 @@ Using _spotify-this-song_
 <img src= "images/songSearch.png" width="700px">
 </p>
 
+<p align="center"><b>An input of spotify-this-song with NO song name, will default to search of "The Sign".</b>
+<br>
+<img src= "images/spotifyEmpty.png" width="700px">
+</p>
+
 ### Movie
 Using _movie-this_
 <p align="center"><b>An input of movie-this with movie title and the results are loaded with movie Name, Year Made, Ratings from OMBD and Rotten Tomatoes, Production location, Language of movie, and Plot.</b>
@@ -34,11 +39,22 @@ Using _movie-this_
 <img src= "images/movieSearch.png">
 </p>
 
+<p align="center"><b>An input of movie-this with NO movie title will default search of "Mr. Nobody".</b>
+<br>
+<img src= "images/moviethisEmptyResults.png">
+</p>
+
+
 ### Do What It Says aka "Hey Liri..."
 Using _do-what-it-says_
-<p align="center"><b>An input of do-what-it-says, which will read a text file via npm fs, will show results based on the command in the text file. In this example, the text file contains spotifty-this-song "I Want it That Way"</b>
+<p align="center"><b>An input of do-what-it-says, which will read a text file via npm fs, will show results based on the command in the text file. In this example, the text file contains spotifty-this-song "I Want it That Way".</b>
 <br>
 <img src= "images/dowhatitSaysSearch.png">
+</p>
+
+<p align="center"><b>Here, we have an input of do-what-it-says, however, this time, the text file contatins movie-this Mulan with the results as shown.</b>
+<br>
+<img src= "images/dowhatitSaysMovie.png">
 </p>
 
 ## Technologies Used

@@ -99,7 +99,7 @@ function spotifySearch() {
             }
 
             if (songInfo.previewLink === null) {
-                console.log("Listen preview here: ***Sorry no link at this time.***")
+                console.log("Listen preview here: ***Sorry no link at this time.***");
             }
             else{
                 console.log("Listen preview here: " + songInfo.previewLink);
@@ -129,7 +129,6 @@ function movieSearch() {
            ombdVal: response.data.Ratings[0].Value,
            rottonTVal: response.data.Ratings[1].Value
         } 
-      
         
         console.log("\nMovie Name: " + movieInfo.title
         + "\nYear Made: " + movieInfo.year
