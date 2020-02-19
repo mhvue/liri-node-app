@@ -19,6 +19,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
     search += nodeArgs[i];
     }
 }
+
 //to get user's input and know which category to start which funct
 if(action === "concert-this") {
     concertSearch();
@@ -28,6 +29,7 @@ else if(action === "spotify-this-song"){
 }
 else if(action === "movie-this") {
     movieSearch();
+
 }
 else if(action ==="do-what-it-says"){
     heyLiri();
@@ -69,10 +71,15 @@ function concertSearch(){
         else {
         console.log("Error", error.message);
         }
-})};
+});
+};
 
 //spotify-this-song '<song name here>'`
 function spotifySearch() {
+    if(search =="") {
+        search = "The Sign";
+    }
+
     spotify
     .search({type:'track', query: search, limit: 5}, function(error, data){
         for (var k = 0; k < data.tracks.items.length; k++) {
@@ -82,19 +89,15 @@ function spotifySearch() {
                 songName: data.tracks.items[k].name,
                 previewLink: data.tracks.items[k].preview_url
             }
-        if (error) {
-            return console.log('Error occurred: ' + error);
-        }
-        if(search = "") {
-            search = "The Sign";
-            
-            console.log("\nSong: " + songInfo.songName + "." + "\nBy: " + 
-            songInfo.artistName + "." + "\nFrom album titled: " + songInfo.albumName);;
-            console.log("Listen preview here: " + songInfo.previewLink);
-    }
-        else{
-            console.log("\nSong: " + songInfo.songName + "." + "\nBy: " + 
-            songInfo.artistName + "." + "\nFrom album titled: " + songInfo.albumName);
+        
+            if (error) {
+                return console.log('Error occurred: ' + error);
+            }
+            else{
+                console.log("\nSong: " + songInfo.songName + "." + "\nBy: " + 
+                songInfo.artistName + "." + "\nFrom album titled: " + songInfo.albumName);
+            }
+
             if (songInfo.previewLink === null) {
                 console.log("Listen preview here: ***Sorry no link at this time.***")
             }
@@ -102,10 +105,14 @@ function spotifySearch() {
                 console.log("Listen preview here: " + songInfo.previewLink);
             } 
         }
-    }
-})};
+    
+    });
+};
 
 function movieSearch() {
+    if(search =="") {
+        search = "Mr. Nobody";
+    }
     var ombdQueryURL= "http://www.omdbapi.com/?t=" + search + "&apikey=trilogy";
     axios
     .get(ombdQueryURL).then(function(response) {
@@ -122,27 +129,17 @@ function movieSearch() {
            ombdVal: response.data.Ratings[0].Value,
            rottonTVal: response.data.Ratings[1].Value
         } 
-        if(search = null) {
-            search = "Mr. Nobody";
-            console.log("\nMovie Name: " + movieInfo.title
-            + "\nYear Made: " + movieInfo.year
-            + "\nOMBD Ratings: " + ratings.ombd + " = " + ratings.ombdVal
-            + "\nRotten Tomatoes Ratings: " + ratings.rottonT + " = " + ratings.rottonTVal
-            + "\nProduced in: " + movieInfo.countryProd
-            + "\nLanguage of movie: " + movieInfo.language 
-            + "\nPlot: " + movieInfo.plot
-            + "\nActors: " + movieInfo.actors);
-        }
-        else {
-            console.log("\nMovie Name: " + movieInfo.title
-            + "\nYear Made: " + movieInfo.year
-            + "\nOMBD Ratings= " + ratings.ombdVal
-            + "\nRotten Tomatoes Ratings= " +  ratings.rottonTVal
-            + "\nProduced in: " + movieInfo.countryProd
-            + "\nLanguage of movie: " + movieInfo.language 
-            + "\nPlot: " + movieInfo.plot
-            + "\nActors: " + movieInfo.actors);
-        }
+      
+        
+        console.log("\nMovie Name: " + movieInfo.title
+        + "\nYear Made: " + movieInfo.year
+        + "\nOMBD Ratings= " + ratings.ombdVal
+        + "\nRotten Tomatoes Ratings= " +  ratings.rottonTVal
+        + "\nProduced in: " + movieInfo.countryProd
+        + "\nLanguage of movie: " + movieInfo.language 
+        + "\nPlot: " + movieInfo.plot
+        + "\nActors: " + movieInfo.actors);
+        
     })
     .catch(function(error) {
         if(error.response) {
@@ -154,29 +151,29 @@ function movieSearch() {
         else {
         console.log("Error", error.message);
         }
-})
+});
 };
 
 function heyLiri() {
     fs.readFile("random.txt", "utf8", function(error, data) {
-        var dataNew = data.split(",")
-        action = dataNew[0]
+        var dataNew = data.split(",");
+        action = dataNew[0];
         search = dataNew[1];
         
         if(action === "spotify-this-song") {
             spotifySearch();
         }
 
-        // if(action === "movie-this"){ //testing this out 
-        //     movieSearch();
-        // }
-        // console.log(action,search)
-        // if(action === "concert-this") {
-        //     concertSearch();
-        // }
-        if(error) { 
+        else if(action === "movie-this"){ 
+            movieSearch();
+        }
+      
+        else if(action === "concert-this") {
+            concertSearch();
+        }
+        else{
             console.log(error)
         }
         
     });
-}
+};
