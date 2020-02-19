@@ -47,7 +47,7 @@ Using _movie-this_
 
 ### Do What It Says aka "Hey Liri..."
 Using _do-what-it-says_
-<p align="center"><b>An input of do-what-it-says, which will read a text file via npm fs, will show results based on the command in the text file. In this example, the text file contains spotifty-this-song "I Want it That Way".</b>
+<p align="center"><b>An input of do-what-it-says, it's reading a text file via npm fs. Then will show results based on what is in that text file. In this example, the text file contains spotifty-this-song "I Want it That Way".</b>
 <br>
 <img src= "images/dowhatitSaysSearch.png">
 </p>
