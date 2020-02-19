@@ -47,12 +47,12 @@ Using _movie-this_
 
 ### Do What It Says aka "Hey Liri..."
 Using _do-what-it-says_
-<p align="center"><b>An input of do-what-it-says, it's reading a text file via npm fs. Then will show results based on what is in that text file. In this example, the text file contains spotifty-this-song "I Want it That Way".</b>
+<p align="center"><b>An input of do-what-it-says will read a text file containing command line. The results shown are based on what is in that text file. In this example, the text file contains spotifty-this-song "I Want it That Way".</b>
 <br>
 <img src= "images/dowhatitSaysSearch.png">
 </p>
 
-<p align="center"><b>Here, we have an input of do-what-it-says, however, this time, the text file contatins movie-this Mulan with the results as shown.</b>
+<p align="center"><b>Here, we have an input of do-what-it-says, however, this time, the text file contatins movie-this Mulan.</b>
 <br>
 <img src= "images/dowhatitSaysMovie.png">
 </p>
