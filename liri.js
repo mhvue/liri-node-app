@@ -20,7 +20,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
     }
 }
 
-//to get user's input and know which category to start which funct
+//to get user's input and know which command entered
 if(action === "concert-this") {
     concertSearch();
 }
@@ -35,7 +35,7 @@ else if(action ==="do-what-it-says"){
     heyLiri();
 }
 else {
-    console.log("Please try again. Don't forget to include category first. Ex: movie-this <input name of movie>")
+    console.log("Please try again. Don't forget to include command first. Ex: movie-this then input name of movie")
 }
 
 //concert-this <artist/band name here>
@@ -171,7 +171,7 @@ function heyLiri() {
             concertSearch();
         }
         else{
-            console.log(error)
+            console.log("Nothing to read");
         }
         
     });
