@@ -6,12 +6,25 @@ This is a language interpretation application for command line on node.  This ap
 * Find movie information using command  _movie-this_
 * Call one of the commands above using command _do-what-it-says_
 
+
+## Table of Contents
+* [How it works](#how-it-works)
+    * [Concert-this](#concert-this)
+    * [Spotify-this-song](#spotify-this-song)
+    * [Movie-this](#movie-this)
+    * [Do-what-it-says](#do-what-it-says)
+* [Technologies](#technologies)
+
+
 ## How it works:
 1. Open terminal. (I am using Git Bash.)
 2. Go into the folder with file liri.js.
-3. Always start with "node". Then input liri.js. Stay on the same line then follow next steps.
-4. Input the command and topic of interest (ex: movie-this Cinderella)
+3. Start with "node". Then input liri.js.
+<pre><code>node liri.js </code></pre> 
+4. On that same line, input the command and topic of interest 
+<pre><code>node liri.js movie-this Cinderella </pre></code>
 5. Results will then load. See examples below.
+
 
 ### Concerts 
 Using _concert-this_
@@ -57,5 +70,18 @@ Using _do-what-it-says_
 <img src= "images/dowhatitSaysMovie.png">
 </p>
 
-## Technologies Used
-This application uses npm packages of axios, moment, fs, dotenv and spotify. Information on movies obtained from OMBD API. Information on concert obtained from Bands in Town Artist Events API. Song information obtained from Spotify API. This application is build with javascript and node.js. 
+## Technologies 
+* Npm packages 
+    * Axios
+    * Moment
+    * fs
+    * dotenv 
+    * spotify 
+* Information on movies obtained from 
+    * OMBD API
+* Information on concert obtained from 
+    * Bands in Town Artist Events API
+* Song information obtained from 
+    * Spotify API
+* Javascript 
+* Node.js
