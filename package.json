@@ -21,7 +21,7 @@
     "axios": "^0.21.2",
     "dotenv": "^8.2.0",
     "file": "^0.2.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-spotify-api": "^1.1.1",
     "system": "^2.0.1"
   },
